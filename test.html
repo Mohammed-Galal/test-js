@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" dir="ltr" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- IMPORTANT IMPORTS -->
+    <script
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/gh/Mohammed-Galal/mini-jquery/dist/main.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Mohammed-Galal/mini-jquery/dist/main.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1 class="hello <span>world</span>" id="demo">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </h1>
+
+    <script id="select-fn" type="text/javascript">
+      $("h1"); // Single Select Function --> to select one element
+      // to select one element and manipulate it.
+      $("h1", (el) => {
+        return {
+          style: "background: blue; color: #fff",
+        };
+      });
+
+      $$("h1"); // Select All Function --> to select all <h1> elements
+      // OR .. Using the Select All Function to manipulate all selected elements
+      $$("h1", (el) => {
+        return {
+          innerHTML: el.className + " <small>Mohammed Galal</small>",
+        };
+      });
+
+      // remember that the second argument of the Selection Function must be a function that returns an object.
+      /***
+       * PLEASE NOTE...
+       *
+       * you can access all the native properies of the selected element, like so...
+       *
+       * $("h1").innerText || $("h1").id || $("h1").bla_bla_bla
+       *
+       * but you cant use the native properties of the element if you are using the (Select All Function), like so...
+       *
+       * $$("h1").innerText // that will bring an error
+       *
+       * there is only two ways to access all native properties of the selected elements:-
+       *
+       * ?? First
+       * $$("h1").forEach((element)=>{
+       *
+       * element.innerText = "bla_bla_bla"
+       *
+       * });
+       *
+       * ?? Second
+       * $$("h1", (el) => {
+       * return {
+       *
+       * innerText: "bla_bla_bla"
+       *
+       * }})
+       *
+       */
+    </script>
+
+    <script id="children">
+      /***
+       *
+       * element.children // to select all children of an element
+       *
+       *
+       * 1- to Find && Select one element inside of an element
+       * const selectOneElementInsideElement = $("h1").$("span");
+       * console.log(selectOneElementInsideElement);
+       *
+       * this will select the first <h1> in the document and will select the first <span> in the <h1> tag
+       *
+       * 2- to Find && Select more than one element inside of an element
+       * const selectAllSpanElements = $("h1").$$("span");
+       * console.log(selectAllSpanElements);
+       */
+    </script>
+
+    <script id="jquery-methods">
+      /***
+       *  ALL JQUERY FUNCTIONS THAT ARE SUPPORTED HERE...
+       *
+       * parent()
+       * parentsUntil("element")
+       * parents()
+       *
+       * prev()
+       * prevUntil("element")
+       * prevAll()
+       *
+       * next()
+       * nextUntil("element")
+       * nextAll()
+       *
+       * clone() // to clone an element OR elements
+       *
+       * element.and("elements")
+       * elements.and("elements")
+       *
+       * element.offset()[top || left]
+       * elements.offset()[top || left]
+       *
+       * element.scroll(top, left)
+       * elements.scroll(top, left)
+       *
+       * $$(elements).eq(2) // to get the second element of the selected elements
+       */
+    </script>
+
+    <script id="css">
+      /***
+       *
+       * element.css() // to get the styles of an element
+       *
+       * element.css("height, color, background") // to get an array of these css properties value
+       *
+       * element.css({
+       * background: "red",
+       * padding: "1rem"
+       * border-left: "3px solid #ff0"
+       * })
+       * // to set a punch of css properties
+       *
+       */
+    </script>
+
+    <script id="attr">
+      /***
+       * element.attr() // to get the element's all attributes
+       *
+       * element.attr("class, id") // to get an array of a specific attributes values
+       *
+       * element.attr({
+       *  class: "bla_bla_bla",
+       *  id: "demo"
+       * }) // to set a punch of a specific attributes
+       *
+       * to add attributes
+       * element.addAttr("attr1, attr2 , attr3")
+       * elements.addAttr("attr1, attr2 , attr3")
+       *
+       * to remove attributes
+       * element.removeAttr("attr1, attr2 , attr3")
+       * elements.removeAttr("attr1, attr2 , attr3")
+       *
+       * to toggle attributes
+       * element.toggleAttr("attr1, attr2 , attr3")
+       * elements.toggleAttr("attr1, attr2 , attr3")
+       *
+       */
+    </script>
+
+    <script id="events">
+      /***
+       * element.on("click, mousedown, mouseleave", function(){
+       *  console.log(this);
+       * });  // to set a punch of events to apply one specific function
+       *
+       *
+       * element.on({
+       *   click: function1(),
+       *   mouseenter: function2(),
+       *   mouseleave: function3(),
+       *   ....
+       * }); // to set a punch of events to various functions
+       */
+    </script>
+
+    <script id="classes">
+      /***
+       *
+       * element.addClass("class1, class2, class2")
+       * elements.addClass("class1, class2, class2")
+       *
+       * element.removeClass("class1, class2, class2")
+       * elements.removeClass("class1, class2, class2")
+       *
+       * element.toggleClass("class1, class2, class2")
+       * elements.toggleClass("class1, class2, class2")
+       *
+       */
+    </script>
+  </body>
+</html>
